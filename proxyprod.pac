@@ -13,7 +13,7 @@ function FindProxyForURL(url, host) {
       return "DIRECT";
     }
 
-    // No proxy for Microsft 365 and file share
+    // No proxy for Microsft 365 and file share and Datto
     if (
         shExpMatch(host,"*.microsoft.com") ||
         shExpMatch(host,"*.msftidentity.com") ||
@@ -96,7 +96,8 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*.cloud.microsoft") ||
         shExpMatch(host,"*.static.microsoft") ||
         shExpMatch(host,"*.usercontent.microsoft") ||
-        shExpMatch(host,"*.file.core.windows.net")
+        shExpMatch(host,"*.file.core.windows.net") ||
+        shExpMatch(host,"*.merlot.centralstage.net")
     ) {
     return "DIRECT";
     }
