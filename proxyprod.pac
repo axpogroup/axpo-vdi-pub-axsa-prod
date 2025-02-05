@@ -58,9 +58,7 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*.visualstudio.com") ||
         shExpMatch(host,"*.staffhub.ms") ||
         shExpMatch(host,"*.edgesuite.net") ||
-        shExpMatch(host,"*.bing.net") ||
         shExpMatch(host,"*.msedge.net") ||
-        shExpMatch(host,"*.bing.com") ||
         shExpMatch(host,"*.acompli.net") ||
         shExpMatch(host,"*.outlookmobile.com") ||
         shExpMatch(host,"*.windows-ppe.net") ||
