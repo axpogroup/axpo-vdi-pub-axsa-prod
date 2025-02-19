@@ -97,7 +97,6 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*.file.core.windows.net") ||
         shExpMatch(host,"*.merlot.rmm.datto.com") ||
         shExpMatch(host,"*.centralstage.net")
-        merlot.rmm.datto.com
     ) {
     return "DIRECT";
     }
