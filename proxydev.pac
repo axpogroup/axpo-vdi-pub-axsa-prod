@@ -95,6 +95,7 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*.static.microsoft") ||
         shExpMatch(host,"*.usercontent.microsoft") ||
         shExpMatch(host,"*.file.core.windows.net") ||
+        shExpMatch(host,"*.webremote.merlot.rmm.datto.com") ||
         shExpMatch(host,"*.merlot.rmm.datto.com") ||
         shExpMatch(host,"*.centralstage.net")
     ) {
