@@ -47,7 +47,6 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*.o365weve.com") ||
         shExpMatch(host,"*.onestore.ms") ||
         shExpMatch(host,"*.gfx.ms") ||
-        shExpMatch(host,"*.linkedin.com") ||
         shExpMatch(host,"*.msocdn.com") ||
         shExpMatch(host,"*.office365.com") ||
         shExpMatch(host,"*.aadrm.com") ||
