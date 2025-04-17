@@ -53,12 +53,10 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*.aadrm.com") ||
         shExpMatch(host,"*.azurerms.com") ||
         shExpMatch(host,"*.azure.com") ||
-        shExpMatch(host,"*.virtualearth.net") ||
         shExpMatch(host,"*.sharepointonline.com") ||
         shExpMatch(host,"*.visualstudio.com") ||
         shExpMatch(host,"*.staffhub.ms") ||
         shExpMatch(host,"*.edgesuite.net") ||
-        shExpMatch(host,"*.msedge.net") ||
         shExpMatch(host,"*.acompli.net") ||
         shExpMatch(host,"*.outlookmobile.com") ||
         shExpMatch(host,"*.windows-ppe.net") ||
