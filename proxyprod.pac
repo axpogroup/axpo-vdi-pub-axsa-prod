@@ -28,7 +28,6 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*.live.net") ||
         shExpMatch(host,"*.live.com") ||
         shExpMatch(host,"*.onedrive.com") ||
-        shExpMatch(host,"*.onenote.net") ||
         shExpMatch(host,"*.onenote.com") ||
         shExpMatch(host,"*.office.net") ||
         shExpMatch(host,"*.office.com") ||
