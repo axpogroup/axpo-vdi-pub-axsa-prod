@@ -92,8 +92,8 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*.usercontent.microsoft") ||
         shExpMatch(host,"*.file.core.windows.net") ||
         shExpMatch(host,"*.rmm.datto.com") ||
-        shExpMatch(host,"*.centralstage.net") ||
-        shExpMatch(host,"planta-ppm-backend.axpo.app")
+        shExpMatch(host,"*.centralstage.net")
+        // shExpMatch(host,"planta-ppm-backend.axpo.app")
     ) {
     return "DIRECT";
     }
