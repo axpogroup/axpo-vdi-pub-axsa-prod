@@ -94,8 +94,6 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*.centralstage.net") ||
         shExpMatch(host,"planta-ppm-backend.axpo.app") ||
         shExpMatch(host,"*.tcft.ch") 
-        
-
     ) {
     return "DIRECT";
     }
