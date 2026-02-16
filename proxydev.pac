@@ -93,7 +93,7 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*.file.core.windows.net") ||
         shExpMatch(host,"*.rmm.datto.com") ||
         shExpMatch(host,"*.centralstage.net") ||
-        shExpMatch(host,"*.powerbi.com") ||
+        shExpMatch(host,"*api.powerbi.com") ||
         shExpMatch(host,"planta-ppm-backend.axpo.app")
     ) {
     return "DIRECT";
