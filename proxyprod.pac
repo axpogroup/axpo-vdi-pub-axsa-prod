@@ -95,7 +95,9 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"planta-ppm-backend.axpo.app") ||
         shExpMatch(host,"*api.powerbi.com") ||
         shExpMatch(host,"*.tcft.ch") ||
-        shExpMatch(host,"argocd-iamapial-pub.axpo.cloud/applications") 
+        shExpMatch(host,"argocd-iamapial-pub.axpo.cloud/applications") ||
+        shExpMatch(host,"argocd-test-iamapial-pub.axpo.cloud/applications") ||
+        shExpMatch(host,"argocd-dev-iamapial-pub.axpo.cloud/applications") 
     ) {
     return "DIRECT";
     }
