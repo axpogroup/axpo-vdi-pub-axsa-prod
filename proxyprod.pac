@@ -124,6 +124,71 @@ function FindProxyForURL(url, host) {
     return "DIRECT";
     }
 
+    // No proxy for Eplan Platform, Services & Rittal Applications
+    if (
+        // Eplan Core / Identity / Auth
+        shExpMatch(host, "*.login.eplan.com") ||
+        shExpMatch(host, "*.identityservice.eplan.com") ||
+        shExpMatch(host, "*.useradministration.eplan.com") ||
+        shExpMatch(host, "*.myaccountservice.eplan.com") ||
+        shExpMatch(host, "*.mysettings.eplan.com") ||
+        shExpMatch(host, "*.selfservice.eplan.com") ||
+        shExpMatch(host, "*.legalnotes.eplan.com") ||
+        shExpMatch(host, "*.goto.eplan.com") ||
+        shExpMatch(host, "*.www.eplan.com") ||
+        shExpMatch(host, "*.www.eplan.help") ||
+        // Eplan Platform Services
+        shExpMatch(host, "*.fileprovider.eplan.com") ||
+        shExpMatch(host, "*.mgmtservice.eplan.com") ||
+        shExpMatch(host, "*.appsservice.eplan.com") ||
+        shExpMatch(host, "*.apps.eplan.com") ||
+        shExpMatch(host, "*.configuration.eplan.com") ||
+        shExpMatch(host, "*.api.eplan.com") ||
+        shExpMatch(host, "*.notificationservice.eplan.com") ||
+        shExpMatch(host, "*.licensingservice.eplan.com") ||
+        shExpMatch(host, "*.licensingservicev5.eplan.com") ||
+        // Eplan Data Portal
+        shExpMatch(host, "*.dataportal.eplan.com") ||
+        // Eplan eBuild
+        shExpMatch(host, "*.ebuilddesigner.eplan.com") ||
+        shExpMatch(host, "*.ebuildprojectbuilder.eplan.com") ||
+        // Eplan eManage
+        shExpMatch(host, "*.emanage.eplan.com") ||
+        // Eplan eStock
+        shExpMatch(host, "*.estock.eplan.com") ||
+        shExpMatch(host, "*.cs3estockserviceprodwesa.blob.core.windows.net") ||
+        shExpMatch(host, "*.cs3-cpmsimport-prod1-westeurope-sr.service.signalr.net") ||
+        // Eplan eView
+        shExpMatch(host, "*.eview.eplan.com") ||
+        // Eplan eView AR
+        shExpMatch(host, "*.arhub.eplan.com") ||
+        shExpMatch(host, "*.arhubbackend.eplan.com") ||
+        shExpMatch(host, "*.eplan-prod.es.thingworx.com") ||
+        // Eplan eTraining (eLearning)
+        shExpMatch(host, "*.etraining.eplan.com") ||
+        // Eplan Master Data Import
+        shExpMatch(host, "*.masterdataimportservice.eplan.com") ||
+        shExpMatch(host, "*.masterdataimport.eplan.com") ||
+        shExpMatch(host, "*.cs8fpprodwesa.blob.core.windows.net") ||
+        shExpMatch(host, "*.cs8dpprodwesa.blob.core.windows.net") ||
+        // Eplan Report Center
+        shExpMatch(host, "*.reportcenter.eplan.com") ||
+        shExpMatch(host, "*.reportcenterservice.eplan.com") ||
+        // Rittal ePocket
+        shExpMatch(host, "*.epocket.eplan.com") ||
+        // Rittal RiTherm
+        shExpMatch(host, "*.ritherm.eplan.com") ||
+        // Rittal RiPanel Processing Center
+        shExpMatch(host, "*.layouter-ripanel-processing-center.eplan.com") ||
+        shExpMatch(host, "*.jobmanagement-ripanel-processing-center.eplan.com") ||
+        // mTCaptcha (used by Eplan)
+        shExpMatch(host, "*.service.mtcaptcha.com") ||
+        shExpMatch(host, "*.service2.mtcaptcha.com") ||
+        shExpMatch(host, "*.mtcaptcha.com")
+    ) {
+        return "DIRECT";
+    }
+
     // Proxy all other requests
     return "HTTPS t20i3o7im5.proxy.cloudflare-gateway.com:443";
 }
