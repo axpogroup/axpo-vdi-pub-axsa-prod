@@ -1,19 +1,14 @@
 function FindProxyForURL(url, host) {
-    // No proxy for private (RFC 1918) IP addresses (intranet sites)
+    // 1. Cheap, no-DNS checks FIRST
     if (
-      isInNet(dnsResolve(host), "10.0.0.0", "255.0.0.0") ||
-      isInNet(dnsResolve(host), "172.16.0.0", "255.240.0.0") ||
-      isInNet(dnsResolve(host), "192.168.0.0", "255.255.0.0")
+        isPlainHostName(host) ||
+        host == "localhost" ||
+        host == "127.0.0.1"
     ) {
-      return "DIRECT";
-    }
-  
-    // No proxy for localhost
-    if (isInNet(dnsResolve(host), "127.0.0.0", "255.0.0.0")) {
-      return "DIRECT";
+        return "DIRECT";
     }
 
-    // No proxy for Microsft 365 and file share and Datto
+    // No proxy for Microsoft 365, file share and Datto
     if (
         shExpMatch(host,"*.microsoft.com") ||
         shExpMatch(host,"*.msftidentity.com") ||
@@ -96,15 +91,13 @@ function FindProxyForURL(url, host) {
         shExpMatch(host,"*api.powerbi.com") ||
         shExpMatch(host,"planta-ppm-backend.axpo.app")
     ) {
-    return "DIRECT";
+        return "DIRECT";
     }
 
     // No proxy for Teams Communications
     if (
-        //Teams Communications
         shExpMatch(host, "*.lync.com") ||
         shExpMatch(host, "*.teams.microsoft.com") ||
-        shExpMatch(host, "teams.microsoft.com") ||
         shExpMatch(host, "teams.microsoft.com") ||
         shExpMatch(host, "*.keydelivery.mediaservices.windows.net") ||
         shExpMatch(host, "*.streaming.mediaservices.windows.net") ||
@@ -116,7 +109,7 @@ function FindProxyForURL(url, host) {
         shExpMatch(host, "*.skype.com") ||
         shExpMatch(host, "compass-ssl.microsoft.com")
     ) {
-    return "DIRECT";
+        return "DIRECT";
     }
 
     // No proxy for Eplan Platform, Services & Rittal Applications
@@ -181,6 +174,16 @@ function FindProxyForURL(url, host) {
         shExpMatch(host, "*.service2.mtcaptcha.com") ||
         shExpMatch(host, "*.mtcaptcha.com")
     ) {
+        return "DIRECT";
+    }
+
+    // 2. DNS resolution performed ONCE, only for traffic that fell through all string checks above
+    var ip = dnsResolve(host);
+    if (ip &&
+        (isInNet(ip, "10.0.0.0",    "255.0.0.0")   ||
+         isInNet(ip, "172.16.0.0",  "255.240.0.0")  ||
+         isInNet(ip, "192.168.0.0", "255.255.0.0")  ||
+         isInNet(ip, "127.0.0.0",   "255.0.0.0"))) {
         return "DIRECT";
     }
 
