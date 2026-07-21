@@ -209,7 +209,7 @@ function FindProxyForURL(url, host) {
         shExpMatch(host, "*.centralstage.net")              ||  // Datto
         shExpMatch(host, "*.rmm.datto.com")                 ||  // Datto RMM
         shExpMatch(host, "*.tcft.ch")                       ||  // TCFT
-        shExpMatch(host, "planta-ppm-backend.axpo.app")     ||  // Axpo Planta PPM
+        shExpMatch(host, "planta-ppm-backend.axpo.app")         // Axpo Planta PPM
         // addresses to add once approved:
         // shExpMatch(host, "argocd-iamapial-pub.axpo.cloud/applications")      ||
         // shExpMatch(host, "argocd-test-iamapial-pub.axpo.cloud/applications") ||
