@@ -172,8 +172,8 @@ function FindProxyForURL(url, host) {
         // mTCaptcha (used by Eplan)
         shExpMatch(host, "*.service.mtcaptcha.com") ||
         shExpMatch(host, "*.service2.mtcaptcha.com") ||
-        shExpMatch(host, "*.mtcaptcha.com")    ||
-        shExpMatch(host, "*.businesscentral.dynamics.com")  ||  // PowerQuery
+        shExpMatch(host, "*.mtcaptcha.com")    
+        // shExpMatch(host, "*.businesscentral.dynamics.com")  ||  // PowerQuery
     ) {
         return "DIRECT";
     }
