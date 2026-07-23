@@ -8,6 +8,15 @@ function FindProxyForURL(url, host) {
         return "DIRECT";
     }
 
+    // Route Business Central through Cloudflare Gateway.
+    // This rule must remain above all broader DIRECT rules.
+    if (
+        host == "businesscentral.dynamics.com" ||
+        dnsDomainIs(host, ".businesscentral.dynamics.com")
+    ) {
+        return "HTTPS t20i3o7im5.proxy.cloudflare-gateway.com:443";
+    }
+
     // No proxy for Microsoft 365, file share and Datto
     if (
         shExpMatch(host,"*.microsoft.com") ||
@@ -172,8 +181,7 @@ function FindProxyForURL(url, host) {
         // mTCaptcha (used by Eplan)
         shExpMatch(host, "*.service.mtcaptcha.com") ||
         shExpMatch(host, "*.service2.mtcaptcha.com") ||
-        shExpMatch(host, "*.mtcaptcha.com") ||
-        shExpMatch(host, "*.businesscentral.dynamics.com")
+        shExpMatch(host, "*.mtcaptcha.com")
     ) {
         return "DIRECT";
     }
