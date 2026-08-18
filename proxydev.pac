@@ -95,8 +95,8 @@ function FindProxyForURL(url, host) {
         shExpMatch(host, "*.api.powerbi.com") ||
         shExpMatch(host, "*.businesscentral.dynamics.com") ||
         shExpMatch(host, "planta-ppm-backend.axpo.app") ||
-        shExpMatch(host, "*.secure-access.axpo-systems.com") ||
-        shExpMatch(host, "*.secure-portal.axpo-systems.com")
+        IsHostOrSubdomain(host, "secure-access.axpo-systems.com") ||
+        IsHostOrSubdomain(host, "secure-portal.axpo-systems.com")
     ) {
         return "DIRECT";
     }
