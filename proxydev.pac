@@ -12,15 +12,6 @@ function FindProxyForURL(url, host) {
         return "DIRECT";
     }
 
-    // Route Business Central through Cloudflare Gateway.
-    // This rule must remain above all broader DIRECT rules.
-    if (
-        host == "businesscentral.dynamics.com" ||
-        dnsDomainIs(host, ".businesscentral.dynamics.com")
-    ) {
-        return "HTTPS t20i3o7im5.proxy.cloudflare-gateway.com:443";
-    }
-
     // No proxy for Microsoft 365, file share and Datto
     if (
         shExpMatch(host, "*.microsoft.com") ||
@@ -102,8 +93,10 @@ function FindProxyForURL(url, host) {
         shExpMatch(host, "*.rmm.datto.com") ||
         shExpMatch(host, "*.centralstage.net") ||
         shExpMatch(host, "*api.powerbi.com") ||
+        shExpMatch(host, "*businesscentral.dynamics.com") ||
         shExpMatch(host, "planta-ppm-backend.axpo.app") ||
-        host == "secure-access.axpo-systems.com"
+        shExpMatch(host, "*secure-access.axpo-systems.com") ||
+        shExpMatch(host, "*secure-portal.axpo-systems.com")
     ) {
         return "DIRECT";
     }
@@ -127,9 +120,6 @@ function FindProxyForURL(url, host) {
     }
 
     // No proxy for EPLAN Platform, Services and Rittal Applications.
-    // IsHostOrSubdomain matches both, for example, login.eplan.com and
-    // any subdomain below it. The previous *.login.eplan.com rule did not
-    // match the base hostname.
     if (
         // EPLAN Core / Identity / Auth
         IsHostOrSubdomain(host, "login.eplan.com") ||
