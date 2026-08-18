@@ -92,11 +92,11 @@ function FindProxyForURL(url, host) {
         shExpMatch(host, "*.file.core.windows.net") ||
         shExpMatch(host, "*.rmm.datto.com") ||
         shExpMatch(host, "*.centralstage.net") ||
-        shExpMatch(host, "*api.powerbi.com") ||
-        shExpMatch(host, "*businesscentral.dynamics.com") ||
+        shExpMatch(host, "*.api.powerbi.com") ||
+        shExpMatch(host, "*.businesscentral.dynamics.com") ||
         shExpMatch(host, "planta-ppm-backend.axpo.app") ||
-        shExpMatch(host, "*secure-access.axpo-systems.com") ||
-        shExpMatch(host, "*secure-portal.axpo-systems.com")
+        shExpMatch(host, "*.secure-access.axpo-systems.com") ||
+        shExpMatch(host, "*.secure-portal.axpo-systems.com")
     ) {
         return "DIRECT";
     }
