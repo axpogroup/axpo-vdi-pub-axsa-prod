@@ -102,7 +102,8 @@ function FindProxyForURL(url, host) {
         shExpMatch(host, "*.rmm.datto.com") ||
         shExpMatch(host, "*.centralstage.net") ||
         shExpMatch(host, "*api.powerbi.com") ||
-        shExpMatch(host, "planta-ppm-backend.axpo.app")
+        shExpMatch(host, "planta-ppm-backend.axpo.app") ||
+        shExpMatch(host, "secure-access.axpo-systems.com")      // ITHUB-53452 SCION portal - direct egress via firewall
     ) {
         return "DIRECT";
     }
