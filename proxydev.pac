@@ -93,7 +93,6 @@ function FindProxyForURL(url, host) {
         shExpMatch(host, "*.rmm.datto.com") ||
         shExpMatch(host, "*.centralstage.net") ||
         shExpMatch(host, "*.api.powerbi.com") ||
-        shExpMatch(host, "*.businesscentral.dynamics.com") ||
         shExpMatch(host, "planta-ppm-backend.axpo.app") ||
         IsHostOrSubdomain(host, "secure-access.axpo-systems.com") ||
         IsHostOrSubdomain(host, "secure-portal.axpo-systems.com")
