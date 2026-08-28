@@ -1,3 +1,8 @@
+    // ── Matches the domain and any subdomain ─────────────────────
+function IsHostOrSubdomain(host, domain) {
+    return host == domain || dnsDomainIs(host, "." + domain);
+}
+
 function FindProxyForURL(url, host) {
 
     // ── 1. CHEAPEST CHECKS — no DNS, no pattern matching ─────────────────────
@@ -12,64 +17,64 @@ function FindProxyForURL(url, host) {
     // ── 2. EPLAN PLATFORM, SERVICES & RITTAL APPLICATIONS ────────────────────
     if (
         // Core / Identity / Auth
-        shExpMatch(host, "*.goto.eplan.com")                                ||
-        shExpMatch(host, "*.identityservice.eplan.com")                     ||
-        shExpMatch(host, "*.legalnotes.eplan.com")                          ||
-        shExpMatch(host, "*.login.eplan.com")                               ||
-        shExpMatch(host, "*.myaccountservice.eplan.com")                    ||
-        shExpMatch(host, "*.mysettings.eplan.com")                          ||
-        shExpMatch(host, "*.selfservice.eplan.com")                         ||
-        shExpMatch(host, "*.useradministration.eplan.com")                  ||
-        shExpMatch(host, "*.www.eplan.com")                                 ||
-        shExpMatch(host, "*.www.eplan.help")                                ||
+        IsHostOrSubdomain(host, "goto.eplan.com")                      ||
+        IsHostOrSubdomain(host, "identityservice.eplan.com")           ||
+        IsHostOrSubdomain(host, "legalnotes.eplan.com")                ||
+        IsHostOrSubdomain(host, "login.eplan.com")                     ||
+        IsHostOrSubdomain(host, "myaccountservice.eplan.com")          ||
+        IsHostOrSubdomain(host, "mysettings.eplan.com")                ||
+        IsHostOrSubdomain(host, "selfservice.eplan.com")               ||
+        IsHostOrSubdomain(host, "useradministration.eplan.com")        ||
+        IsHostOrSubdomain(host, "www.eplan.com")                       ||
+        IsHostOrSubdomain(host, "www.eplan.help")                      ||
         // Platform Services
-        shExpMatch(host, "*.api.eplan.com")                                 ||
-        shExpMatch(host, "*.apps.eplan.com")                                ||
-        shExpMatch(host, "*.appsservice.eplan.com")                         ||
-        shExpMatch(host, "*.configuration.eplan.com")                       ||
-        shExpMatch(host, "*.fileprovider.eplan.com")                        ||
-        shExpMatch(host, "*.licensingservice.eplan.com")                    ||
-        shExpMatch(host, "*.licensingservicev5.eplan.com")                  ||
-        shExpMatch(host, "*.mgmtservice.eplan.com")                         ||
-        shExpMatch(host, "*.notificationservice.eplan.com")                 ||
+        IsHostOrSubdomain(host, "api.eplan.com")                       ||
+        IsHostOrSubdomain(host, "apps.eplan.com")                      ||
+        IsHostOrSubdomain(host, "appsservice.eplan.com")               ||
+        IsHostOrSubdomain(host, "configuration.eplan.com")             ||
+        IsHostOrSubdomain(host, "fileprovider.eplan.com")              ||
+        IsHostOrSubdomain(host, "licensingservice.eplan.com")          ||
+        IsHostOrSubdomain(host, "licensingservicev5.eplan.com")        ||
+        IsHostOrSubdomain(host, "mgmtservice.eplan.com")               ||
+        IsHostOrSubdomain(host, "notificationservice.eplan.com")       ||
         // Data Portal
-        shExpMatch(host, "*.dataportal.eplan.com")                          ||
+        IsHostOrSubdomain(host, "dataportal.eplan.com")                ||
         // eBuild
-        shExpMatch(host, "*.ebuilddesigner.eplan.com")                      ||
-        shExpMatch(host, "*.ebuildprojectbuilder.eplan.com")                ||
+        IsHostOrSubdomain(host, "ebuilddesigner.eplan.com")            ||
+        IsHostOrSubdomain(host, "ebuildprojectbuilder.eplan.com")      ||
         // eManage
-        shExpMatch(host, "*.emanage.eplan.com")                             ||
+        IsHostOrSubdomain(host, "emanage.eplan.com")                   ||
         // eStock
-        shExpMatch(host, "*.cs3-cpmsimport-prod1-westeurope-sr.service.signalr.net") ||
-        shExpMatch(host, "*.cs3estockserviceprodwesa.blob.core.windows.net")         ||
-        shExpMatch(host, "*.estock.eplan.com")                              ||
+        IsHostOrSubdomain(host, "cs3-cpmsimport-prod1-westeurope-sr.service.signalr.net") ||
+        IsHostOrSubdomain(host, "cs3estockserviceprodwesa.blob.core.windows.net") ||
+        IsHostOrSubdomain(host, "estock.eplan.com")                    ||
         // eTraining (eLearning)
-        shExpMatch(host, "*.etraining.eplan.com")                           ||
+        IsHostOrSubdomain(host, "etraining.eplan.com")                 ||
         // eView
-        shExpMatch(host, "*.eview.eplan.com")                               ||
+        IsHostOrSubdomain(host, "eview.eplan.com")                     ||
         // eView AR
-        shExpMatch(host, "*.arhub.eplan.com")                               ||
-        shExpMatch(host, "*.arhubbackend.eplan.com")                        ||
-        shExpMatch(host, "*.eplan-prod.es.thingworx.com")                   ||
+        IsHostOrSubdomain(host, "arhub.eplan.com")                     ||
+        IsHostOrSubdomain(host, "arhubbackend.eplan.com")              ||
+        IsHostOrSubdomain(host, "eplan-prod.es.thingworx.com")         ||
         // Master Data Import
-        shExpMatch(host, "*.cs8dpprodwesa.blob.core.windows.net")           ||
-        shExpMatch(host, "*.cs8fpprodwesa.blob.core.windows.net")           ||
-        shExpMatch(host, "*.masterdataimport.eplan.com")                    ||
-        shExpMatch(host, "*.masterdataimportservice.eplan.com")             ||
+        IsHostOrSubdomain(host, "cs8dpprodwesa.blob.core.windows.net") ||
+        IsHostOrSubdomain(host, "cs8fpprodwesa.blob.core.windows.net") ||
+        IsHostOrSubdomain(host, "masterdataimport.eplan.com")          ||
+        IsHostOrSubdomain(host, "masterdataimportservice.eplan.com")   ||
         // Report Center
-        shExpMatch(host, "*.reportcenter.eplan.com")                        ||
-        shExpMatch(host, "*.reportcenterservice.eplan.com")                 ||
+        IsHostOrSubdomain(host, "reportcenter.eplan.com")              ||
+        IsHostOrSubdomain(host, "reportcenterservice.eplan.com")       ||
         // Rittal ePocket
-        shExpMatch(host, "*.epocket.eplan.com")                             ||
+        IsHostOrSubdomain(host, "epocket.eplan.com")                   ||
         // Rittal RiPanel Processing Center
-        shExpMatch(host, "*.jobmanagement-ripanel-processing-center.eplan.com") ||
-        shExpMatch(host, "*.layouter-ripanel-processing-center.eplan.com")      ||
+        IsHostOrSubdomain(host, "jobmanagement-ripanel-processing-center.eplan.com") ||
+        IsHostOrSubdomain(host, "layouter-ripanel-processing-center.eplan.com") ||
         // Rittal RiTherm
-        shExpMatch(host, "*.ritherm.eplan.com")                             ||
+        IsHostOrSubdomain(host, "ritherm.eplan.com")                   ||
         // mTCaptcha (used by Eplan)
-        shExpMatch(host, "*.mtcaptcha.com")                                 ||
-        shExpMatch(host, "*.service.mtcaptcha.com")                         ||
-        shExpMatch(host, "*.service2.mtcaptcha.com")
+        IsHostOrSubdomain(host, "mtcaptcha.com")                       ||
+        IsHostOrSubdomain(host, "service.mtcaptcha.com")               ||
+        IsHostOrSubdomain(host, "service2.mtcaptcha.com")
     ) {
         return "DIRECT";
     }
