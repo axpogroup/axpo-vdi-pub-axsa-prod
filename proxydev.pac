@@ -102,6 +102,21 @@ function FindProxyForURL(url, host) {
         return "DIRECT";
     }
 
+    // No proxy for OneDrive for Business
+    if (
+        shExpMatch(host, "*.sharepoint.com") ||
+        shExpMatch(host, "storage.live.com") ||
+        shExpMatch(host, "*.wns.windows.com") ||
+        shExpMatch(host, "admin.onedrive.com") ||
+        shExpMatch(host, "officeclient.microsoft.com") ||
+        shExpMatch(host, "g.live.com") ||
+        shExpMatch(host, "oneclient.sfx.ms") ||
+        shExpMatch(host, "*.sharepointonline.com") ||
+        shExpMatch(host, "spoprod-a.akamaihd.net") ||
+        shExpMatch(host, "*.svc.ms")
+    ) {
+        return "DIRECT";
+    }    
     // No proxy for Teams Communications
     if (
         shExpMatch(host, "*.lync.com") ||
